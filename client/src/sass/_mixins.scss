@@ -1,0 +1,131 @@
+@import "./_variables";
+
+@mixin fill_container {
+	width: 100%;
+	height: 100%;
+}
+
+@mixin grow_container {
+	width: 100%;
+	height: auto;
+}
+
+// base flex - display: flex;
+@mixin base_flex {
+	display: flex;
+}
+
+///////////////////////////////////
+////// DATE PICKER MIXIN(S) //////
+///////////////////////////////////
+
+// "FOCUS MODE" STYLES FOR DATE PICKER COMPONENTS
+@mixin focusMode {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	box-shadow: 2px 9px 217px 34px rgba(0, 0, 0, 0.52);
+	z-index: 50;
+}
+
+///////////////////////////////////
+////////// Grid MIXINS ////////////
+///////////////////////////////////
+
+@mixin grid_even($percent) {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, $percent);
+	grid-template-rows: repeat(auto-fit, $percent);
+	justify-content: center;
+	align-items: center;
+}
+
+// 4x4 grid - centered
+@mixin grid_4x4 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 25%);
+	grid-template-rows: repeat(auto-fit, 25%);
+	justify-content: center;
+	grid-gap: 2rem 2rem;
+	align-items: center;
+}
+
+// 3x3 grid - centered
+@mixin grid_3x3 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 33.33%);
+	grid-template-rows: repeat(auto-fit, 33.33%);
+	justify-content: center;
+	grid-gap: 2rem 2rem;
+	align-items: center;
+}
+
+// 6x6 grid - centered
+@mixin grid_6x6 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 16.66%);
+	grid-template-rows: repeat(auto-fit, 16.66%);
+	justify-content: center;
+	grid-gap: 2rem 2rem;
+	align-items: center;
+}
+
+// calendar in date picker component
+@mixin grid_7x4 {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, calc(100% / 7));
+	grid-template-rows: repeat(5, minmax(5rem, 7rem));
+}
+
+// <Calendar/>component
+@mixin calendar {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, calc(100% / 7));
+	grid-template-rows: repeat(4, auto-fill);
+}
+
+// COLOR MIXINS //
+
+// DIRECTIONAL GRADIENT MIXIN //
+@mixin dir_gradient($dir, $colors...) {
+	background-image: linear-gradient(to $dir, $colors);
+}
+
+@mixin dark_gradient {
+	@include dir_gradient(left bottom, rgb(15, 23, 28), rgb(15, 23, 42));
+}
+
+@mixin purple_gradient {
+	background-image: linear-gradient(
+		to left bottom,
+		#7c3aed,
+		#7434df,
+		#6b2dd1,
+		#6327c3,
+		#5b21b6
+	);
+}
+
+@mixin light_gradient {
+	background-image: linear-gradient(
+		to right top,
+		#f8fafc,
+		#f2f6f9,
+		#edf1f6,
+		#e7edf3,
+		#e2e8f0
+	);
+}
+
+// CLIP-PATH REGIONS //
+
+// used on <Header/>
+@mixin clipped_header {
+	clip-path: polygon(100% 0, 100% 72%, 36% 100%, 0 89%, 0 0);
+}
+
+@mixin clipped_section {
+	clip-path: polygon(50% 15%, 100% 7%, 100% 78%, 68% 100%, 30% 87%, 0 76%, 0 0);
+}

@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	background-color: #eaecef;
+	font-family: "Raleway", "Open Sans", "Roboto", "Arial", sans-serif;
+}
+html {
+	font-size: 62.5%;
+}

@@ -1,0 +1,39 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.DomainInput {
+	width: 32rem;
+	height: auto;
+	@include flex_row(flex-start, center);
+	border-radius: 0.5rem;
+
+	&:focus-within,
+	&:hover {
+		cursor: pointer;
+		box-shadow: map-get($map: $shadows, $key: "mainOutline");
+	}
+
+	&_prefix {
+		border-radius: 0.5rem 0 0 0.5rem;
+	}
+	&_domain {
+		width: 22rem;
+		height: 3.5rem;
+
+		&_input {
+			@include fill_container;
+			border-radius: 0 0.5rem 0.5rem 0;
+			padding-left: 0.3rem;
+			border: none;
+			outline: none;
+			font-family: map-get($map: $fonts, $key: "altSans");
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: map-get($map: $blueGreyMap, $key: "700");
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}

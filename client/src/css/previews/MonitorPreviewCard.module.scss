@@ -1,0 +1,112 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.MonitorPreviewCard {
+	width: 55rem;
+	height: 10rem;
+	padding: 2rem;
+	background-color: map-get($map: $blueGreyMap, $key: "50");
+	@include flex_row(flex-start, center);
+	border-radius: 0.5rem;
+	box-shadow: map-get($map: $shadows, $key: "medium");
+	font-family: map-get($map: $fonts, $key: "altSans");
+
+	&_site {
+		width: 70%;
+		height: 100%;
+		border-radius: 0.5rem;
+		@include flex_row(flex-start, center);
+
+		&_status {
+			width: 8rem;
+			height: 100%;
+			@include flex_row(flex-start, center);
+
+			&_icon {
+				width: 5rem;
+				height: 5rem;
+				fill: map-get($map: $purpleMap, $key: "700");
+			}
+		}
+		&_about {
+			width: 90%;
+			height: 100%;
+			padding: 0 2rem;
+			@include flex_col(flex-start, flex-start);
+
+			&_name {
+				font-size: 2.5rem;
+				font-weight: 700;
+				color: map-get($map: $blueGreyMap, $key: "800");
+				margin-bottom: 1rem;
+			}
+			&_url {
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: map-get($map: $blueGreyMap, $key: "500");
+			}
+		}
+	}
+	&_stats {
+		width: 100%;
+		height: 100%;
+		padding: 0 1rem;
+		@include flex_col(flex-start, center);
+
+		&_label {
+			font-size: 1.7rem;
+			font-weight: 500;
+			color: map-get($map: $blueGreyMap, $key: "500");
+			margin-bottom: 1rem;
+		}
+		&_time {
+			font-size: 2rem;
+			font-weight: 700;
+			color: map-get($map: $blueGreyMap, $key: "800");
+		}
+	}
+}
+
+.SuccessIcon {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	@include flex_row(flex-start, center);
+
+	&_icon {
+		width: 5rem;
+		height: 5rem;
+		fill: map-get($map: $greenMap, $key: "500");
+	}
+}
+
+.ErrorIcon {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background-color: map-get($map: $redMap, $key: "600");
+	@include flex_row(center, center);
+	box-shadow: map-get($map: $shadows, $key: "light");
+
+	&_icon {
+		width: 4rem;
+		height: 4rem;
+		fill: #ffffff;
+	}
+}
+
+.ResponseTime {
+	@include fill_container;
+	@include flex_row(center, center);
+
+	&_value {
+		font-size: 2rem;
+		font-weight: 700;
+		color: map-get($map: $blueGreyMap, $key: "800");
+
+		&_label {
+			font-size: 1.4rem;
+		}
+	}
+}

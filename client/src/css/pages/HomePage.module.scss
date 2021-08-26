@@ -1,0 +1,12 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.HomePage {
+	@include fill_container;
+
+	&_content {
+		padding: 2rem;
+		padding-top: 10rem;
+	}
+}

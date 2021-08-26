@@ -1,0 +1,42 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.AddNewMonitor {
+	width: 80rem;
+	max-width: 100%;
+	height: auto;
+	padding: 1rem 2rem;
+	min-height: 50rem;
+	border-radius: 0.5rem;
+	border: 1px solid #ccc;
+
+	&_header {
+		width: 100%;
+		height: auto;
+		margin-bottom: 4rem;
+
+		&_title {
+			font-size: 2.8rem;
+			font-weight: 600;
+			color: map-get($map: $purpleMap, $key: "700");
+		}
+	}
+	&_siteInfo {
+		width: 100%;
+		height: auto;
+
+		&_heading {
+			font-size: 2rem;
+			font-weight: 600;
+			color: map-get($map: $blueGreyMap, $key: "600");
+			margin-bottom: 3rem;
+		}
+		&_domain {
+			margin-bottom: 4rem;
+		}
+		&_url {
+			margin-bottom: 2rem;
+		}
+	}
+}

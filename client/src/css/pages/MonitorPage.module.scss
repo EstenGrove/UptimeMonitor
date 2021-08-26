@@ -1,0 +1,7 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.MonitorPage {
+	@include fill_container;
+}

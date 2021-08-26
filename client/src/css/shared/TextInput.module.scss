@@ -1,0 +1,34 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.TextInput {
+	width: 35rem;
+	height: 3.5rem;
+
+	&_label {
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: map-get($map: $blueGreyMap, $key: "500");
+	}
+	&_wrapper {
+		@include fill_container;
+		border-radius: 0.5rem;
+		&:hover,
+		&:focus-within {
+			cursor: pointer;
+			box-shadow: map-get($map: $shadows, $key: "mainOutline");
+		}
+
+		&_input {
+			@include fill_container;
+			padding-left: 0.5rem;
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: map-get($map: $blueGreyMap, $key: "700");
+			border-radius: 0.5rem;
+			border: none;
+			outline: none;
+		}
+	}
+}

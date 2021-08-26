@@ -1,0 +1,123 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+// input UI
+.PrefixSelector {
+	position: relative;
+	width: 11rem;
+	height: 3.5rem;
+	border-radius: 0.5rem 0 0 0.5rem;
+	background-color: map-get($map: $blueGreyMap, $key: "300");
+	border: none;
+
+	&_wrapper {
+		width: 100%;
+		height: 100%;
+		padding-left: 0.3rem;
+		@include flex_row(flex-start, center);
+		border-radius: 0.5rem 0 0 0.5rem;
+		border: none;
+
+		&_input {
+			@include fill_container;
+			border-radius: 0.5rem 0 0 0.5rem;
+			background-color: transparent;
+			padding-left: 0.5rem;
+			border: none;
+			outline: none;
+			font-size: 1.6rem;
+			font-weight: 500;
+			font-family: map-get($map: $fonts, $key: "altSans");
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		&_iconWrapper {
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			@include flex_row(center, center);
+
+			&_icon {
+				width: 2rem;
+				height: 2rem;
+				fill: map-get($map: $blueGreyMap, $key: "800");
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+// dropdown menu
+.PrefixDropdown {
+	position: absolute;
+	top: 3.7rem;
+	left: 0;
+	width: 17rem;
+	height: 12rem;
+
+	border-radius: 0.5rem;
+	box-shadow: map-get($map: $shadows, $key: "medium");
+	background-color: #ffffff;
+
+	&_list {
+		@include fill_container;
+		list-style: none;
+		overflow-y: auto;
+
+		/* Background tracking */
+		&::-webkit-scroll-track {
+			background-color: #ffffff;
+		}
+		/* Sets width/height of 'thumb' & hides default */
+		&::-webkit-scrollbar {
+			appearance: none;
+			-webkit-appearance: none;
+			width: 0.8rem;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: map-get($map: $blueGreyMap, $key: "400");
+			border-radius: 5rem;
+		}
+
+		&_option {
+			width: 100%;
+			height: 3.5rem;
+			@include flex_row(flex-start, center);
+			padding: 0.5rem 1rem;
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: map-get($map: $blueGreyMap, $key: "700");
+			font-family: map-get($map: $fonts, $key: "altSans");
+			margin-bottom: 0.3rem;
+
+			&:hover {
+				cursor: pointer;
+				background-color: map-get($map: $purpleMap, $key: "200");
+				color: map-get($map: $purpleMap, $key: "700");
+			}
+
+			&_isSelected {
+				width: 2rem;
+				height: 2rem;
+				background-color: transparent;
+				margin-left: auto;
+
+				&_icon {
+					align-self: center;
+					width: 1.8rem;
+					height: 1.8rem;
+					fill: map-get($map: $purpleMap, $key: "700");
+					cursor: pointer;
+				}
+			}
+
+			&_selection {
+				@extend .PrefixDropdown_list_option;
+				background-color: map-get($map: $purpleMap, $key: "200");
+				color: map-get($map: $purpleMap, $key: "700");
+			}
+		}
+	}
+}
