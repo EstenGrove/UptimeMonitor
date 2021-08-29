@@ -40,13 +40,6 @@ const trimUrl = (urlString, maxLength = 40) => {
 	const suffix = urlString.slice(anchor, -1);
 	const merged = prefix + "..." + suffix;
 
-	console.group("Trimmed");
-	console.log("urlString", urlString);
-	console.log("prefix", prefix);
-	console.log("suffix", suffix);
-	console.log("merged", merged);
-	console.groupEnd();
-
 	return addEllipsis(merged);
 };
 

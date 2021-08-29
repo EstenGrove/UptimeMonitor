@@ -17,3 +17,5 @@ A remote uptime monitor for managing site reliability and downtime including not
 - Ping Metadata:
   - HTTP Response Time in milliseconds (ms)
   - HTTP Error (if applicable)
+- Ability to Group Multiple Sites:
+  - "Monitor Groups"

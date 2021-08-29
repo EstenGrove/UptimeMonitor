@@ -146,5 +146,5 @@ export default PrefixSelector;
 PrefixSelector.defaultProps = {};
 
 PrefixSelector.propTypes = {
-	val: PropTypes,
+	val: PropTypes.string,
 };

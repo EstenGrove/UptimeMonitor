@@ -5,6 +5,7 @@ import "./App.scss";
 import Main from "./components/Main";
 import HomePage from "./pages/HomePage";
 import MonitorPage from "./pages/MonitorPage";
+import ServiceIndicator from "./components/dev/ServiceIndicator";
 
 export const history = createBrowserHistory();
 
@@ -33,7 +34,7 @@ function App() {
 				return err;
 			}
 		};
-		testFetch(targetURL);
+		// testFetch(targetURL);
 
 		return () => {
 			isMounted = false;
@@ -50,6 +51,8 @@ function App() {
 						<Route path="/monitor" component={MonitorPage} />
 					</Switch>
 				</Main>
+
+				<ServiceIndicator />
 			</div>
 		</Router>
 	);
