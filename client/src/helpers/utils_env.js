@@ -2,17 +2,17 @@ import { apiPrefix } from "./utils_endpoints";
 
 const SERVICES_ENV = {
 	dev: {
-		base: "http://localhost:8080" + apiPrefix,
+		base: "http://localhost:8080",
 		username: "",
 		password: "",
 	},
 	test: {
-		base: "http://localhost:8080" + apiPrefix,
+		base: "http://localhost:8080",
 		username: "",
 		password: "",
 	},
 	prod: {
-		base: "https://sgore.dev/uptime-monitor" + apiPrefix,
+		base: "https://sgore.dev/uptime-monitor",
 		username: "",
 		password: "",
 	},
@@ -25,7 +25,7 @@ const CURRENT_ENV_NAME = "test";
 // current 'ENVIRONMENT' settings
 const CURRENT_ENV = SERVICES_ENV["test"];
 
-const BASE_URL = CURRENT_ENV.base + apiPrefix;
+const BASE_URL = CURRENT_ENV.base;
 
 export { dev, test, prod };
 

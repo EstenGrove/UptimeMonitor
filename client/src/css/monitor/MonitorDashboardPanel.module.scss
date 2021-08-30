@@ -1,0 +1,8 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.MonitorDashboardPanel {
+	@include fill_container;
+	@include flex_row(space-evenly, flex-start, wrap);
+}

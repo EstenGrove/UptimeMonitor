@@ -7,35 +7,54 @@ const apiVersion = "/v1";
 
 const endpoints = {
 	monitor: {
+		base: "/sites",
 		update: {
-			entry: "/updateMonitor", // updates url or name
-			settings: "/updateMonitorSettings", // updates frequency of ping
+			entry: "/update-site", // updates url or name
+			settings: "/update-site", // updates frequency of ping
 		},
 		create: {
-			new: "newMonitor",
+			entry: "/add-site",
 		},
 		remove: {
-			entry: "/removeMonitor",
+			entry: "/delete-site",
 		},
 		get: {
-			group: "/getMonitorGroup", // returns a custom group of monitors
-			monitorChart: "/getMonitorChart", // fetches data for chart UI
+			allSites: "/sites",
+			group: "/site-group", // returns a custom group of monitors
+			monitorChart: "UNKNOWN", // fetches data for chart UI
+		},
+	},
+	intervals: {
+		get: {
+			allTypes: "/intervals",
+		},
+		create: {
+			entry: "/add-interval",
+		},
+	},
+	frequency: {
+		get: {
+			allTypes: "/frequency",
+		},
+		create: {
+			entry: "/add-frequency",
 		},
 	},
 	app: {
 		services: {
-			checkStatus: "/checkMonitorStatus",
+			checkStatus: "/api",
 		},
 		update: {
-			force: "/forceUpdate",
-			checkForUpdates: "/checkForUpdates",
+			force: "/force-update",
+			checkForUpdates: "/check-for-updates",
 		},
 	},
 };
+const { monitor, app, frequency, intervals } = endpoints;
 
 // base API url <http|https>://<currentEnv><prefix><version>  (eg. 'https://localhost:8080/api/v1')
 // const baseUrl = currentEnv.base + apiPrefix + apiVersion;
 // const baseUrl = currentEnv?.base + apiPrefix;
 
-export { apiPrefix, apiVersion, endpoints };
-// export { baseUrl };
+export { apiPrefix, apiVersion };
+export { monitor, app, intervals, frequency, endpoints };

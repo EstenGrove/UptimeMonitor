@@ -1,0 +1,85 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.MonitorSiteCard {
+	width: 45rem;
+	height: 35rem;
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	box-shadow: map-get($map: $shadows, $key: "subtle");
+	margin: 2rem 1rem;
+
+	&_header {
+		width: 100%;
+		height: 5rem;
+		@include flex_col(flex-start, flex-start);
+
+		&_name {
+			font-size: 2rem;
+			font-weight: 600;
+			color: map-get($map: $blueGreyMap, $key: "600");
+			margin-bottom: 0.3rem;
+		}
+		&_url {
+			font-size: 1.3rem;
+			font-weight: 500;
+			color: map-get($map: $blueGreyMap, $key: "500");
+			font-family: map-get($map: $fonts, $key: "altSans");
+		}
+	}
+	&_currentStatus {
+		width: 100%;
+		height: auto;
+		min-height: 10rem;
+	}
+	&_settings {
+		width: 100%;
+		height: 20rem;
+		@include flex_col(flex-start, flex-start);
+
+		&_option {
+			width: 100%;
+			height: auto;
+			margin-bottom: 0.3rem;
+
+			&_label {
+				font-size: 1.2rem;
+				font-weight: 500;
+				color: map-get($map: $blueGreyMap, $key: "400");
+				cursor: pointer;
+			}
+			&_value {
+				font-size: 1.2rem;
+				font-weight: 500;
+				color: map-get($map: $blueGreyMap, $key: "600");
+				font-family: map-get($map: $fonts, $key: "altSans");
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.SiteCardSetting {
+	width: 100%;
+	height: auto;
+	margin-bottom: 0.3rem;
+
+	&_label {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: map-get($map: $blueGreyMap, $key: "400");
+		cursor: pointer;
+	}
+	&_value {
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: map-get($map: $blueGreyMap, $key: "600");
+		font-family: map-get($map: $fonts, $key: "altSans");
+		&:hover {
+			cursor: pointer;
+			color: map-get($map: $purpleMap, $key: "700");
+		}
+	}
+}

@@ -23,7 +23,7 @@ const getAllFromTable = (tableName, req, res) => {
 	pool.query(`SELECT * FROM ${tableName} ORDER BY id ASC`, (err, results) => {
 		if (err) throw err;
 
-		return res.status(200).json(results.rows);
+		return res.json(results.rows);
 	});
 };
 // fetches all interval types
@@ -31,7 +31,7 @@ const getAllIntervalTypes = (req, res) => {
 	pool.query("SELECT * FROM interval_types ORDER BY id ASC", (err, results) => {
 		if (err) throw err;
 
-		return res.status(200).json(results.rows);
+		return res.json(results.rows);
 	});
 };
 // fetches all interval frequency options (eg 30, 60 etc).
@@ -41,14 +41,14 @@ const getAllIntervalOptions = (req, res) => {
 		(err, results) => {
 			if (err) throw err;
 
-			return res.status(200).json(results.rows);
+			return res.json(results.rows);
 		}
 	);
 };
 // fetch ALL historical site_checks records
 const getAllHistoricalSiteChecks = (req, res) => {
 	pool.query("SELECT * FROM site_checks ORDER BY id ASC", (err, results) => {
-		return res.status(200).json(results.rows);
+		return res.json(results.rows);
 	});
 };
 // fetch XX number of site_checks table records
@@ -61,7 +61,7 @@ const getSiteChecksByRows = (req, res) => {
 	pool.query(
 		`SELECT * FROM site_checks ORDER BY id ASC LIMIT ${rows}`,
 		(err, results) => {
-			return res.status(200).json(results?.rows ?? []);
+			return res.json(results?.rows ?? []);
 		}
 	);
 };
@@ -73,7 +73,7 @@ const getAllSiteChecksBySite = (req, res) => {
 		`SELECT * FROM site_checks WHERE id = $1`,
 		[id],
 		(err, results) => {
-			return res.status(200).json(results.rows);
+			return res.json(results.rows);
 		}
 	);
 };
@@ -83,7 +83,7 @@ const getAllSites = (req, res) => {
 	pool.query("SELECT * FROM sites ORDER BY id ASC", (err, results) => {
 		if (err) throw err;
 
-		return res.status(200).json(results.rows);
+		return res.json(results.rows);
 	});
 };
 // fetches a single site by 'name' column (GET)
@@ -96,7 +96,7 @@ const getSiteByName = (req, res) => {
 		(err, results) => {
 			if (err) throw err;
 
-			return res.status(200).json(results?.rows ?? "No match found :(");
+			return res.json(results?.rows ?? "No match found :(");
 		}
 	);
 };
@@ -112,7 +112,7 @@ const createSiteMonitor = (req, res) => {
 	} = req.body;
 
 	pool.query(
-		"INSERT INTO sites (name, url, interval_type, interval_frequency, start_date, end_date)",
+		"INSERT INTO sites (name, url, interval_type, interval_frequency, start_date, end_date) VALUES($1, $2, $3, $4, $5, $6)",
 		[name, url, type, freq, startDate, endDate],
 		(err, result) => {
 			if (err) throw err;
@@ -157,7 +157,7 @@ const updateSiteMonitor = (req, res) => {
 		(err, results) => {
 			if (err) throw err;
 
-			return res.status(200).json({
+			return res.json({
 				status: "Success",
 				message: `Site ${id} was updated successfully!`,
 			});
@@ -174,7 +174,7 @@ const disableSiteMonitor = (req, res) => {
 		(err, results) => {
 			if (err) throw err;
 
-			return res.status(200).json({
+			return res.json({
 				status: "Success",
 				message: `Site ${id} was disabled successfully!`,
 			});
@@ -191,7 +191,7 @@ const enableSiteMonitor = (req, res) => {
 		(err, results) => {
 			if (err) throw err;
 
-			return res.status(200).json({
+			return res.json({
 				status: "Success",
 				message: `Site ${id} was re-enabled successfully!`,
 			});
@@ -206,7 +206,7 @@ const deleteSiteMonitor = (req, res) => {
 		if (error) {
 			throw error;
 		}
-		res.status(200).json({
+		res.json({
 			status: "Success",
 			message: `Site monitor ${id} was deleted successfully!`,
 		});

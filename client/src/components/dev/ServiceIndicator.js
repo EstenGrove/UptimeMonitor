@@ -22,7 +22,7 @@ const ServiceIndicator = () => {
 		const isAppOnline = async () => {
 			const resp = await checkAppServices();
 
-			if (resp.status === "ok") {
+			if (resp.status === "Ok") {
 				return setAppServices({
 					isOnline: true,
 					message: resp?.message,
@@ -35,7 +35,7 @@ const ServiceIndicator = () => {
 			}
 		};
 
-		isAppOnline();
+		// isAppOnline();
 
 		return () => {
 			isMounted = false;
