@@ -5,9 +5,7 @@ import { isEmptyArray } from "../../helpers/utils_types";
 import MonitorSiteCard from "./MonitorSiteCard";
 import {
 	createFreqIdMap,
-	createFreqTypeMap,
 	createIntervalsIdMap,
-	createIntervalsNameMap,
 } from "../../helpers/utils_processing";
 
 // WHITE PANEL GRID UI THAT CONTAINS PREVIEWS OF SITES
@@ -17,9 +15,6 @@ const MonitorDashboardPanel = ({
 	intervalTypes = [],
 	frequencyOptions = [],
 }) => {
-	console.log("intervalTypes", intervalTypes);
-	console.log("frequencyOptions", frequencyOptions);
-
 	return (
 		<div className={styles.MonitorDashboardPanel}>
 			{!isEmptyArray(siteMonitors) &&
@@ -31,9 +26,6 @@ const MonitorDashboardPanel = ({
 						freqOptionsMap={createFreqIdMap(frequencyOptions)}
 					/>
 				))}
-			{/*  */}
-			{/*  */}
-			{/*  */}
 		</div>
 	);
 };

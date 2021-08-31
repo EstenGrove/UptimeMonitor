@@ -122,6 +122,50 @@ const COLORS_MAP = {
 const { purple, blue, red, pink, green, yellow, orange, grey, blueGrey, teal } =
 	COLORS_MAP;
 
+// DIALOG ICONS' MAPS //
+/////////////////////////////////////
+// DIALOG COMPONENT - ICON HELPERS //
+/////////////////////////////////////
+const DIALOG_ICONS = {
+	ERROR: "exclamation-outline",
+	WARN: "warningreport_problem",
+	WARN2: "warningreport_problem1",
+	SUCCESS: "check_circle",
+	INFO: "info-with-circle",
+	INFO2: "information-outline",
+	REPORT: "insert_chart_outlined",
+	PRINT: "local_print_shopprint",
+	SAVE: "save11",
+	CHECKMARK: "check_circle",
+	SIGNATURE: "gesture",
+	ALARM: "access_alarmalarm",
+	EDIT: "createmode_editedit",
+	HELP: "live_help",
+	MEDS: "local_hospital",
+	CALENDAR: "event_note",
+	CALENDAR_DONE: "event_available",
+	CALENDAR_MISSED: "event_busy",
+	USER: "account_circle",
+	SETTINGS: "settings1",
+	CHART: "chart-bar",
+	ALERT: "notifications1",
+	SHOW: "view-show",
+	IMAGES: "images",
+	// NEW!!! ICONS
+	CANCEL: "clearclose",
+	CHART2: "insert_chartpollassessment",
+	CLOUD: "cloud_done",
+	CLOUD_DOWNLOAD: "cloud_download",
+	CLOUD_UPLOAD: "cloud_uploadbackup",
+	DOWNLOAD: "file_downloadget_app",
+	UPLOAD: "file_upload",
+	FOLDER: "folder_open",
+	FOLDER_PERSON: "folder_shared",
+	FIRSTAID: "local_hospital",
+	DINNER: "local_restaurantrestaurant_menu",
+	HELP1: "not_listed_location",
+};
+
 // MONITOR CSS STYLES //
 
 // responseTime styles
@@ -212,3 +256,5 @@ export {
 };
 
 export { getTimeClass, getTimeStyles };
+
+export { DIALOG_ICONS };

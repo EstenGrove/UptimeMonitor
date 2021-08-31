@@ -1,0 +1,26 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.SiteMonitorDetailsPage {
+	@include fill_container;
+
+	&_header {
+		width: 100%;
+
+		&_title {
+			font-size: 3rem;
+			font-weight: 600;
+			color: map-get($map: $blueGreyMap, $key: "700");
+
+			& b {
+				font-weight: 700;
+				color: map-get($map: $purpleMap, $key: "700");
+				@include hoverEffect(
+					map-get($map: $purpleMap, $key: "700"),
+					map-get($map: $purpleMap, $key: "300")
+				);
+			}
+		}
+	}
+}

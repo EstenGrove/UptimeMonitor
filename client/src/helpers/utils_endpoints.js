@@ -40,6 +40,13 @@ const endpoints = {
 			entry: "/add-frequency",
 		},
 	},
+	status: {
+		base: "/history",
+		get: {
+			bySite: "/history/site", // "/history/site"
+			allHistory: "/history", // "history"
+		},
+	},
 	app: {
 		services: {
 			checkStatus: "/api",
@@ -50,11 +57,11 @@ const endpoints = {
 		},
 	},
 };
-const { monitor, app, frequency, intervals } = endpoints;
+const { monitor, app, frequency, intervals, status } = endpoints;
 
 // base API url <http|https>://<currentEnv><prefix><version>  (eg. 'https://localhost:8080/api/v1')
 // const baseUrl = currentEnv.base + apiPrefix + apiVersion;
 // const baseUrl = currentEnv?.base + apiPrefix;
 
 export { apiPrefix, apiVersion };
-export { monitor, app, intervals, frequency, endpoints };
+export { monitor, app, intervals, frequency, status, endpoints };

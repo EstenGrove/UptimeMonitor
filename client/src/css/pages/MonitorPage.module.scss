@@ -10,7 +10,7 @@
 		height: auto;
 		min-height: 10rem;
 		padding: 2rem;
-		@include flex_row(space-between, center);
+		@include flex_row(space-between, center, wrap);
 
 		&_addNew {
 			padding: 0.8rem 1.5rem;
@@ -53,5 +53,17 @@
 	}
 	&_main {
 		@include fill_container;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.MonitorPage {
+		width: 100%;
+
+		&_header {
+			width: 100%;
+			padding: 2rem 0.5rem;
+			@include flex_custom(column-reverse, flex-start, center, wrap);
+		}
 	}
 }

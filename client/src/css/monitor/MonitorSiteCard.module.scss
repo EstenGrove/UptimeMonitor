@@ -5,7 +5,7 @@
 .MonitorSiteCard {
 	width: 45rem;
 	height: 35rem;
-	padding: 1rem 2rem;
+	padding: 1rem 0;
 	border-radius: 0.5rem;
 	background-color: #ffffff;
 	box-shadow: map-get($map: $shadows, $key: "subtle");
@@ -14,29 +14,54 @@
 	&_header {
 		width: 100%;
 		height: 5rem;
-		@include flex_col(flex-start, flex-start);
+		@include flex_row(flex-start, flex-start);
 
-		&_name {
-			font-size: 2rem;
-			font-weight: 600;
-			color: map-get($map: $blueGreyMap, $key: "600");
-			margin-bottom: 0.3rem;
+		&_titles {
+			width: 100%;
+			height: 5rem;
+			padding: 0 1rem;
+			@include flex_col(flex-start, flex-start);
+
+			&_name {
+				font-size: 2rem;
+				font-weight: 600;
+				color: map-get($map: $blueGreyMap, $key: "600");
+				margin-bottom: 0.3rem;
+			}
+			&_url {
+				font-size: 1.3rem;
+				font-weight: 500;
+				color: map-get($map: $blueGreyMap, $key: "500");
+				font-family: map-get($map: $fonts, $key: "altSans");
+			}
 		}
-		&_url {
-			font-size: 1.3rem;
-			font-weight: 500;
-			color: map-get($map: $blueGreyMap, $key: "500");
-			font-family: map-get($map: $fonts, $key: "altSans");
+		&_actions {
+			position: relative;
+			width: auto;
+			height: 5rem;
+			padding-right: 1rem;
+			margin-left: auto;
+
+			&_icon {
+				width: 2rem;
+				height: 2rem;
+				fill: map-get($map: $blueGreyMap, $key: "700");
+				&:hover {
+					cursor: pointer;
+					fill: map-get($map: $purpleMap, $key: "700");
+				}
+			}
 		}
 	}
 	&_currentStatus {
 		width: 100%;
-		height: auto;
-		min-height: 10rem;
+		height: 15rem;
 	}
 	&_settings {
 		width: 100%;
 		height: 20rem;
+		padding: 0 1rem;
+		padding-top: 1rem;
 		@include flex_col(flex-start, flex-start);
 
 		&_option {
@@ -61,6 +86,19 @@
 	}
 }
 
+.SiteStatus {
+	@include fill_container;
+	padding: 1rem;
+	@include flex_row(center, center);
+
+	&_wrapper {
+		@include flex_row(center, center);
+		padding: 0.7rem 2rem;
+		border-radius: 5rem;
+		box-shadow: map-get($map: $shadows, $key: "medium");
+	}
+}
+
 .SiteCardSetting {
 	width: 100%;
 	height: auto;
@@ -81,5 +119,135 @@
 			cursor: pointer;
 			color: map-get($map: $purpleMap, $key: "700");
 		}
+	}
+}
+
+.SiteActionsMenu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20rem;
+	height: 15rem;
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	box-shadow: map-get($map: $shadows, $key: "heavy");
+	z-index: 10;
+
+	&_top {
+		width: 100%;
+		height: auto;
+		padding: 0.3rem;
+		@include flex_row(flex-end, flex-start);
+
+		&_closeIcon {
+			width: 1.7rem;
+			height: 1.7rem;
+			fill: map-get($map: $redMap, $key: "700");
+			cursor: pointer;
+		}
+	}
+
+	&_list {
+		width: 100%;
+		height: 100%;
+		max-height: 12rem;
+		overflow-y: auto;
+
+		/* Background tracking */
+		&::-webkit-scroll-track {
+			background-color: #ffffff;
+		}
+		/* Sets width/height of 'thumb' & hides default */
+		&::-webkit-scrollbar {
+			appearance: none;
+			-webkit-appearance: none;
+			width: 0.8rem;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: map-get($map: $blueGreyMap, $key: "500");
+			border-radius: 5rem;
+		}
+
+		&_item {
+			padding: 1rem 0.5rem;
+			font-size: 1.4rem;
+			font-weight: 500;
+			color: map-get($map: $purpleMap, $key: "700");
+
+			&_text {
+				font-size: 1.4rem;
+				font-weight: 500;
+				color: map-get($map: $purpleMap, $key: "700");
+			}
+
+			& > a {
+				font-size: 1.4rem;
+				font-weight: 500;
+				color: map-get($map: $purpleMap, $key: "700");
+				text-decoration: none;
+				@include hoverEffect(
+					map-get($map: $purpleMap, $key: "700"),
+					map-get($map: $purpleMap, $key: "300")
+				);
+			}
+
+			&:hover &_text {
+				cursor: pointer;
+				@include hoverEffect(
+					map-get($map: $purpleMap, $key: "700"),
+					map-get($map: $purpleMap, $key: "300")
+				);
+			}
+		}
+	}
+}
+
+.ResponseTime {
+	width: auto;
+	@include flex_row(center, center);
+	margin-left: 1rem;
+
+	&_value {
+		font-size: 3rem;
+		font-weight: 700;
+		font-family: map-get($map: $fonts, $key: "altSans");
+		color: map-get($map: $blueGreyMap, $key: "800");
+
+		&_label {
+			font-size: 1.4rem;
+		}
+	}
+}
+.SuccessIcon {
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+	@include flex_row(center, center);
+	margin-right: 0.5rem;
+
+	&_icon {
+		width: 6rem;
+		height: 6rem;
+		fill: map-get($map: $greenMap, $key: "500");
+	}
+}
+
+.ErrorIcon {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background-color: map-get($map: $redMap, $key: "600");
+	box-shadow: map-get($map: $shadows, $key: "light");
+	@include flex_row(center, center);
+	&_icon {
+		width: 4.2rem;
+		height: 4.2rem;
+		fill: #ffffff;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.MonitorSiteCard {
+		width: 100%;
 	}
 }

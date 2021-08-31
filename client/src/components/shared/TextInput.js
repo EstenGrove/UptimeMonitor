@@ -10,6 +10,8 @@ const TextInput = ({
 	handleChange,
 	isDisabled = false,
 	readOnly = false,
+	placeholder,
+	customStyles = {},
 }) => {
 	return (
 		<div className={styles.TextInput}>
@@ -26,6 +28,8 @@ const TextInput = ({
 					disabled={isDisabled}
 					readOnly={readOnly}
 					className={styles.TextInput_wrapper_input}
+					style={customStyles}
+					placeholder={placeholder}
 				/>
 			</div>
 		</div>

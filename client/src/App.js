@@ -8,11 +8,9 @@ import MonitorPage from "./pages/MonitorPage";
 import ServiceIndicator from "./components/dev/ServiceIndicator";
 import { getAllSiteMonitors, getIntervalDeps } from "./helpers/utils_monitor";
 import { isEmptyArray } from "./helpers/utils_types";
+import SiteMonitorDetailsPage from "./pages/SiteMonitorDetailsPage";
 
 export const history = createBrowserHistory();
-
-const targetURL = "http://localhost:8080/api";
-// const targetURL = 'http://127.0.0.1:8080'
 
 function App() {
 	return (
@@ -22,6 +20,7 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={HomePage} />
 						<Route path="/monitor" component={MonitorPage} />
+						<Route path="/details" component={SiteMonitorDetailsPage} />
 					</Switch>
 				</Main>
 

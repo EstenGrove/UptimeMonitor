@@ -67,11 +67,11 @@ const getSiteChecksByRows = (req, res) => {
 };
 // fetch XX number of site_checks table records
 const getAllSiteChecksBySite = (req, res) => {
-	const id = parseInt(req.query.id);
+	const siteID = parseInt(req.query.siteID);
 
 	pool.query(
-		`SELECT * FROM site_checks WHERE id = $1`,
-		[id],
+		`SELECT * FROM site_checks WHERE site_id = $1`,
+		[siteID],
 		(err, results) => {
 			return res.json(results.rows);
 		}

@@ -52,25 +52,25 @@ const MonitorIntervalPanel = ({
 					<RadioButton
 						key={`15-mins`}
 						label="15 mins."
-						name="interval"
+						name="frequency"
 						id="15 mins."
-						val={vals?.interval === "15 mins."}
+						val={vals?.frequency === "15 mins."}
 						handleSelection={handleInterval}
 					/>
 					<RadioButton
 						key={`30-mins`}
 						label="30 mins."
-						name="interval"
+						name="frequency"
 						id="30 mins."
-						val={vals?.interval === "30 mins."}
+						val={vals?.frequency === "30 mins."}
 						handleSelection={handleInterval}
 					/>
 					<RadioButton
 						key={`60-mins`}
 						label="60 mins."
-						name="interval"
+						name="frequency"
 						id="60 mins."
-						val={vals?.interval === "60 mins."}
+						val={vals?.frequency === "60 mins."}
 						handleSelection={handleInterval}
 					/>
 				</div>

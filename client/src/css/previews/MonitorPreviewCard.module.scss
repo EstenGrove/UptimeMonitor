@@ -103,6 +103,7 @@
 	&_value {
 		font-size: 2rem;
 		font-weight: 700;
+		font-family: map-get($map: $fonts, $key: "altSans");
 		color: map-get($map: $blueGreyMap, $key: "800");
 
 		&_label {

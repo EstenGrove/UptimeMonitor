@@ -10,7 +10,6 @@
 	align-items: $colType;
 	flex-wrap: $wrapType;
 }
-
 // handles flex columns
 @mixin flex_col($rowType, $colType, $wrapType: nowrap) {
 	@include base_flex;
@@ -18,6 +17,30 @@
 	justify-content: $rowType;
 	align-items: $colType;
 	flex-wrap: $wrapType;
+}
+// custom flex, supports nearly ALL flex properties
+@mixin flex_custom($dirType, $rowType, $colType, $wrapType: nowrap) {
+	@include base_flex;
+	flex-direction: $dirType;
+	justify-content: $rowType;
+	align-items: $colType;
+	flex-wrap: $wrapType;
+}
+
+// MIXIN VERSION:
+// - Supports custom base color
+// - Supports custom hover line color
+@mixin hoverEffect($baseColor, $effectColor) {
+	color: $baseColor;
+	text-decoration: none;
+	background-image: linear-gradient(180deg, transparent 65%, $effectColor 0);
+	background-size: 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size 0.4s ease;
+
+	&:hover {
+		background-size: 100% 100%;
+	}
 }
 
 // replaces the "focusMode" mixin in "mixins.scss"

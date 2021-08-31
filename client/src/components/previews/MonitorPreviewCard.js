@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../css/previews/MonitorPreviewCard.module.scss";
 import sprite from "../../assets/icons/sprite.svg";
 import { PropTypes } from "prop-types";
 import {
 	green,
 	red,
-	blueGrey,
 	getTimeClass,
 	getTimeStyles,
 } from "../../helpers/utils_styles";
-import { addEllipsis, trimUrl } from "../../helpers/utils_processing";
+import { addEllipsis } from "../../helpers/utils_processing";
 
 // REQUIREMENTS:
 // - Quick Preview:
@@ -122,6 +121,7 @@ const MonitorPreviewCard = ({
 };
 
 export default MonitorPreviewCard;
+export { ResponseTime, SuccessIcon, ErrorIcon };
 
 MonitorPreviewCard.defaultProps = {};
 

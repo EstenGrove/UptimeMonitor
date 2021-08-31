@@ -14,6 +14,7 @@ const DomainInput = ({
 	isPrefixDisabled = false,
 	isPrefixLocked = false,
 	prefixOpts = [`https://`, `http://`, `file://`, `chrome://`],
+	customStyles = {},
 }) => {
 	return (
 		<div className={styles.DomainInput}>
@@ -38,6 +39,7 @@ const DomainInput = ({
 					onChange={handleChange}
 					disabled={isDisabled}
 					placeholder={placeholder}
+					style={customStyles}
 				/>
 			</div>
 		</div>
